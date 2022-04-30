@@ -2,10 +2,9 @@ use crate::TransactionError;
 use borsh::{BorshDeserialize, BorshSerialize};
 use serde::{Deserialize, Serialize};
 
-#[cfg(feature = "std_io")]
 use crate::PoseidonErrorKind;
 
-#[cfg(feature = "http, std_io")]
+#[cfg(feature = "http")]
 use crate::HttpError;
 
 #[cfg(feature = "rustls")]
@@ -28,7 +27,6 @@ pub enum PoseidonError {
     InvalidBase58Ed25519Signature,
     RepoCreatePermissionDenied,
     RepoAlreadyExists,
-    #[cfg(feature = "std_io")]
     IoErr(PoseidonErrorKind),
     InvalidByteToUtf8StringConversion,
     InvalidEd25519PublicKeyHex,
@@ -60,7 +58,7 @@ pub enum PoseidonError {
     #[cfg(feature = "rustls")]
     Rustls(RustlsError),
     Tx(TransactionError),
-    #[cfg(feature = "http, std_io")]
+    #[cfg(feature = "http")]
     Http(HttpError),
     SerdeJson(String),
     Unspecified(String),
