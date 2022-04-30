@@ -14,6 +14,7 @@ minreq = { version = "2.6.0", features = ["https-rustls"], optional = true }
 rustls = { version = "=0.20.2", optional = true }
 sct = { version = "0.7.0", optional = true }
 serde = { version = "1.0.136", features = ["derive"] }
+serde_json = { version = "1.0.79", optional = true }
 sled = { version = "0.34.7", optional = true }
 
 [features]
@@ -21,3 +22,4 @@ sled_kv = ["dep:sled"]
 solana_client = []
 rustls = ["dep:rustls", "dep:sct"]
 http = ["dep:rustls", "dep:minreq"]
+serde_json = ["dep:serde_json"]

@@ -87,3 +87,10 @@ impl From<std::io::Error> for PoseidonError {
         PoseidonError::IoErr(error.into())
     }
 }
+
+#[cfg(feature = "serde_json")]
+impl From<serde_json::Error> for PoseidonError {
+    fn from(error: serde_json::Error) -> Self {
+        PoseidonError::SerdeJson(error.to_string())
+    }
+}
