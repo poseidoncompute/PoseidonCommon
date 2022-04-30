@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 use crate::PoseidonErrorKind;
 
 #[cfg(feature = "http")]
-use crate::HttpError;
+use crate::{HttpError, JsonError};
 
 #[cfg(feature = "rustls")]
 use crate::RustlsError;
@@ -60,6 +60,8 @@ pub enum PoseidonError {
     Tx(TransactionError),
     #[cfg(feature = "http")]
     Http(HttpError),
+    #[cfg(feature = "http")]
+    Json(JsonError),
     SerdeJson(String),
     Unspecified(String),
 }

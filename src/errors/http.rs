@@ -3,7 +3,9 @@ use borsh::{BorshDeserialize, BorshSerialize};
 use serde::{Deserialize, Serialize};
 
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(
+    Debug, Deserialize, PartialEq, Eq, PartialOrd, Ord, Serialize, BorshSerialize, BorshDeserialize,
+)]
 #[serde(rename_all = "camelCase")]
 pub struct JsonError {
     pub code: i16,
