@@ -81,7 +81,6 @@ impl From<hex::FromHexError> for PoseidonError {
     }
 }
 
-#[cfg(feature = "std_io")]
 impl From<std::io::Error> for PoseidonError {
     fn from(error: std::io::Error) -> Self {
         PoseidonError::IoErr(error.into())
