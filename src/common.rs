@@ -59,3 +59,11 @@ pub struct UserData {
     pub mime: String,
     pub data: Vec<u8>,
 }
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, BorshSerialize, BorshDeserialize)]
+pub enum AccountOptions {
+    /// Creates an account if the account doesn't exist
+    CreateIfNone,
+    /// Error if the account doesn't exist
+    ErrIfNone,
+}
