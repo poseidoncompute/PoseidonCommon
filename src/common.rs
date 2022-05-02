@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-
+use borsh::{BorshDeserialize, BorshSerialize};
 use crate::PoseidonError;
 
 pub type Ed25519Keypair = [u8; 64];
@@ -51,4 +51,10 @@ impl Default for Cluster {
 pub enum PoseidonOutcome {
     Success,
     Failure(PoseidonError),
+}
+
+#[derive(Debug, BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
+pub struct UserData {
+    pub mime: String,
+    pub data: Vec<u8>,
 }
