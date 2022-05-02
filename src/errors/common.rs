@@ -1,8 +1,6 @@
-use crate::TransactionError;
+use crate::{PoseidonErrorKind, StoreErr, TransactionError};
 use borsh::{BorshDeserialize, BorshSerialize};
 use serde::{Deserialize, Serialize};
-
-use crate::PoseidonErrorKind;
 
 #[cfg(feature = "http")]
 use crate::{HttpError, JsonError};
@@ -63,6 +61,7 @@ pub enum PoseidonError {
     #[cfg(feature = "http")]
     Json(JsonError),
     SerdeJson(String),
+    Store(StoreErr),
     Unspecified(String),
 }
 

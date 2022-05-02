@@ -4,6 +4,10 @@ pub use common::*;
 mod io;
 pub use io::*;
 
+mod db;
+pub use db::*;
+
+
 #[cfg(feature = "http")]
 mod http;
 #[cfg(feature = "http")]
