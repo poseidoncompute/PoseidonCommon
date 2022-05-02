@@ -19,6 +19,7 @@ pub type EncryptedData = Vec<u8>;
 
 pub type DataID = [u8; 32];
 pub type TokenID = [u8; 32];
+pub type SubscriptionID = [u8; 32];
 pub type DataOwnedBytes = Vec<u8>;
 pub type DataBytes<'a> = &'a [u8];
 
